@@ -17,7 +17,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🔬 İnteraktif Çifte Yarık Deneyi")
+# Başlık kısmındaki emoji kaldırıldı
+st.title("İnteraktif Çifte Yarık Deneyi")
 st.write("Parametreleri değiştirerek girişimi gözlemleyin. (Renk temanız sabitlenmiştir)")
 
 # 3. Parametreler (Sidebar)
@@ -40,7 +41,7 @@ beta = (np.pi * a * np.sin(theta)) / lam
 alpha = (np.pi * d * np.sin(theta)) / lam
 intensity = (np.cos(alpha)**2) * (np.sinc(beta/np.pi)**2)
 
-# SABİT TEMA RENGİMİZ
+# SABİT TEMA RENGİ
 SABIT_RENK = '#00f2fe' 
 
 # 5. Görselleştirme
@@ -50,7 +51,7 @@ with col1:
     st.subheader("Yoğunluk Dağılımı")
     fig_plot = go.Figure()
     fig_plot.add_trace(go.Scatter(x=x*100, y=intensity, 
-                                 line=dict(color=SABIT_RENK, width=2), # Renk sabitlendi
+                                 line=dict(color=SABIT_RENK, width=2),
                                  fill='tozeroy', 
                                  fillcolor='rgba(0, 242, 254, 0.1)'))
     
@@ -70,7 +71,6 @@ with col2:
     
     fig_map = go.Figure(data=go.Heatmap(
         z=pattern_2d, x=x*100,
-        # Renk skalası siyah ile sabit teman arasında sabitlendi
         colorscale=[[0, '#0e1117'], [1, SABIT_RENK]], 
         showscale=False
     ))
