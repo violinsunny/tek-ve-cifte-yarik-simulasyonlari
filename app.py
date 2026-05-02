@@ -54,7 +54,7 @@ with col1:
     st.plotly_chart(fig_double, use_container_width=True)
 
 with col2:
-    st.subheader("Ekran İzdüşümü")
+    st.subheader("Projeksiyon")
     pattern_double = np.tile(intensity_double, (100, 1))
     fig_map_double = go.Figure(data=go.Heatmap(z=pattern_double, x=x*100, colorscale=[[0, '#0e1117'], [1, SABIT_RENK]], showscale=False))
     fig_map_double.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)"), yaxis=dict(visible=False), height=350)
@@ -76,7 +76,7 @@ with col3:
     st.plotly_chart(fig_single, use_container_width=True)
 
 with col4:
-    st.subheader("Ekran İzdüşümü")
+    st.subheader("Projeksiyon")
     pattern_single = np.tile(intensity_single, (100, 1))
     fig_map_single = go.Figure(data=go.Heatmap(z=pattern_single, x=x*100, colorscale=[[0, '#0e1117'], [1, SABIT_RENK]], showscale=False))
     fig_map_single.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)"), yaxis=dict(visible=False), height=350)
