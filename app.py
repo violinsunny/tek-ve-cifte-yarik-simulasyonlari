@@ -65,7 +65,7 @@ st.markdown(f"""<div style="background-color: #161b22; padding: 15px; border-rad
 
 # Tek Yarık Deneyi
 st.header("2) Tek Yarık Deneyi")
-intensity_single = (np.sinc(beta/np.pi)**2) # Sadece kırınım zarfı
+intensity_single = (np.sinc(beta/np.pi)**2) 
 
 col3, col4 = st.columns(2)
 with col3:
