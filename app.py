@@ -28,6 +28,3 @@ fig = go.Figure()
 fig.add_trace(go.Scatter(x=x, y=intensity, line=dict(color='#00fbbf')))
 fig.update_layout(template="plotly_dark", height=600)
 st.plotly_chart(fig, use_container_width=True)
-
-!pip install streamlit
-!streamlit run app.py & npx localtunnel --port 8501
