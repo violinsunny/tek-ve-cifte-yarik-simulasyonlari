@@ -3,7 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # 1. Site İsmi
-st.set_page_config(page_title="Tek ve Çifte Yarık Deneyleri Simülasyonları", layout="wide")
+st.set_page_config(page_title="Tek ve Çifte Yarık Simülasyonları", layout="wide")
 
 # 2. Yazı Stili
 st.markdown("""
@@ -18,7 +18,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Başlık
-st.title("Tek ve Çifte Yarık Deneyleri Simülasyonları")
+st.title("Tek ve Çifte Yarık Simülasyonları")
 
 # 3. Parametreler
 with st.sidebar:
