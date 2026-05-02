@@ -22,9 +22,9 @@ st.title("Tek ve Çifte Yarık Deneyleri Simülasyonları")
 
 # 3. Parametreler
 with st.sidebar:
-    st.header("Ortak Parametreler")
+    st.header("Parametreler")
     lam_nm = st.slider("Dalga Boyu (nm)", 400, 700, 532)
-    d_um = st.slider("Yarık Aralığı (µm) - Sadece Çifte Yarık", 20, 200, 100)
+    d_um = st.slider("Yarık Aralığı (µm)", 20, 200, 100)
     a_um = st.slider("Yarık Genişliği (µm)", 5, 50, 20)
     L_m = st.slider("Ekran Mesafesi (m)", 0.5, 3.0, 1.5)
 
@@ -42,7 +42,7 @@ alpha = (np.pi * d * np.sin(theta)) / lam
 SABIT_RENK = '#00f2fe' 
 
 # --- BÖLÜM 1: ÇİFTE YARIK DENEYİ ---
-st.header("1. Çifte Yarık Deneyi (Young Deneyi)")
+st.header("1) Çifte Yarık Deneyi")
 intensity_double = (np.cos(alpha)**2) * (np.sinc(beta/np.pi)**2)
 
 col1, col2 = st.columns(2)
@@ -64,7 +64,7 @@ st.markdown(f"""<div style="background-color: #161b22; padding: 15px; border-rad
 <p style="margin:0; color: {SABIT_RENK};">Çifte Yarık Analizi:</p><h3 style="margin:0;">Saçak Aralığı (Δx): {round((lam * L / d) * 1000, 3)} mm</h3></div>""", unsafe_allow_html=True)
 
 # --- BÖLÜM 2: TEK YARIK KIRINIMI ---
-st.header("2. Tek Yarık Kırınımı")
+st.header("2) Tek Yarık Deneyi")
 intensity_single = (np.sinc(beta/np.pi)**2) # Sadece kırınım zarfı
 
 col3, col4 = st.columns(2)
