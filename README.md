@@ -1,0 +1,1 @@
+# cifte-yarik-simulasyonu
