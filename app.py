@@ -2,10 +2,10 @@ import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
 
-# 1. Sayfa Konfigürasyonu
+# 1. Site İsmi
 st.set_page_config(page_title="İnteraktif Çifte Yarık Deneyi", layout="wide")
 
-# 2. Özel Stil Bloğu
+# 2. Yazı Stili
 st.markdown("""
     <style>
     .stApp {
@@ -20,7 +20,7 @@ st.markdown("""
 # Başlık
 st.title("İnteraktif Çifte Yarık Deneyi")
 
-# 3. Parametreler (Sidebar)
+# 3. Parametreler
 with st.sidebar:
     st.header("Deney Kontrolleri")
     lam_nm = st.slider("Dalga Boyu (nm)", 400, 700, 532)
@@ -40,7 +40,7 @@ beta = (np.pi * a * np.sin(theta)) / lam
 alpha = (np.pi * d * np.sin(theta)) / lam
 intensity = (np.cos(alpha)**2) * (np.sinc(beta/np.pi)**2)
 
-# SABİT TEMA RENGİ
+# Sabit Tema Rengi
 SABIT_RENK = '#00f2fe' 
 
 # 5. Görselleştirme
