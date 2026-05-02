@@ -41,7 +41,7 @@ alpha = (np.pi * d * np.sin(theta)) / lam
 # Sabit Tema Rengi
 SABIT_RENK = '#00f2fe' 
 
-# --- BÖLÜM 1: ÇİFTE YARIK DENEYİ ---
+# Çifte Yarık Deneyi
 st.header("1) Çifte Yarık Deneyi")
 intensity_double = (np.cos(alpha)**2) * (np.sinc(beta/np.pi)**2)
 
@@ -63,7 +63,7 @@ with col2:
 st.markdown(f"""<div style="background-color: #161b22; padding: 15px; border-radius: 10px; border: 1px solid #30363d; margin-bottom: 40px;">
 <p style="margin:0; color: {SABIT_RENK};">Çifte Yarık Analizi:</p><h3 style="margin:0;">Saçak Aralığı (Δx): {round((lam * L / d) * 1000, 3)} mm</h3></div>""", unsafe_allow_html=True)
 
-# --- BÖLÜM 2: TEK YARIK KIRINIMI ---
+# Tek Yarık Deneyi
 st.header("2) Tek Yarık Deneyi")
 intensity_single = (np.sinc(beta/np.pi)**2) # Sadece kırınım zarfı
 
