@@ -3,7 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # 1. Site İsmi
-st.set_page_config(page_title="İnteraktif Çifte Yarık Deneyi", layout="wide")
+st.set_page_config(page_title="Çifte Yarık Deneyi Simülasyonu", layout="wide")
 
 # 2. Yazı Stili
 st.markdown("""
@@ -18,11 +18,10 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Başlık
-st.title("İnteraktif Çifte Yarık Deneyi")
+st.title("Çifte Yarık Deneyi Simülasyonu")
 
 # 3. Parametreler
 with st.sidebar:
-    st.header("Deney Kontrolleri")
     lam_nm = st.slider("Dalga Boyu (nm)", 400, 700, 532)
     d_um = st.slider("Yarık Aralığı (µm)", 20, 200, 100)
     a_um = st.slider("Yarık Genişliği (µm)", 5, 50, 20)
