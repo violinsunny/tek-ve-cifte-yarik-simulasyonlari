@@ -87,6 +87,6 @@ with col2:
 st.markdown(f"""
 <div style="background-color: #161b22; padding: 20px; border-radius: 10px; border: 1px solid #30363d;">
     <p style="margin:0; color: {SABIT_RENK};">Analiz Sonucu:</p>
-    <h3 style="margin:0;">Merkezi saçak aralığı (Δx): {round((lam * L / d) * 1000, 3)} mm</h3>
+    <h3 style="margin:0;">Merkezi Saçak Aralığı (Δx): {round((lam * L / d) * 1000, 3)} mm</h3>
 </div>
 """, unsafe_allow_html=True)
