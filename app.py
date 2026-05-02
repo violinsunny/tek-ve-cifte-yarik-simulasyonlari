@@ -17,9 +17,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Başlık kısmındaki emoji kaldırıldı
+# Başlık (Sadece metin, açıklama kaldırıldı)
 st.title("İnteraktif Çifte Yarık Deneyi")
-st.write("Parametreleri değiştirerek girişimi gözlemleyin. (Renk temanız sabitlenmiştir)")
 
 # 3. Parametreler (Sidebar)
 with st.sidebar:
