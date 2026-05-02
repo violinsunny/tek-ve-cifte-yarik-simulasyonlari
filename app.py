@@ -3,7 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # 1. Sayfa Konfigürasyonu
-st.set_page_config(page_title="Çifte Yarık Laboratuvarı", layout="wide")
+st.set_page_config(page_title="İnteraktif Çifte Yarık Deneyi", layout="wide")
 
 # 2. Özel Stil Bloğu
 st.markdown("""
@@ -17,7 +17,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Başlık (Sadece metin, açıklama kaldırıldı)
+# Başlık
 st.title("İnteraktif Çifte Yarık Deneyi")
 
 # 3. Parametreler (Sidebar)
