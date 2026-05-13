@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 # 1. Site İsmi
 st.set_page_config(page_title="Tek ve Çifte Yarık Simülasyonları", layout="wide")
 
-# 2. Yazı Stili (Kuantum Bloch Küresi Temasıyla Uyumlu)
+# 2. Yazı Stili ve Arayüz Düzenlemesi
 st.markdown("""
     <style>
     .stApp {
@@ -17,15 +17,19 @@ st.markdown("""
         text-shadow: 0 0 10px #00FF00;
         font-weight: bold;
     }
-    p, label { 
+    p, label, span { 
         color: #00FF00 !important; 
     }
-    .stSlider > label {
+    /* Slider ve Input Alanları */
+    .stSlider > label { color: #00FF00 !important; }
+    div[data-baseweb="slider"] > div > div { background-color: #00FF00 !important; }
+    
+    /* Parametre kutucuklarının içindeki değerlerin okunabilirliği */
+    div[data-testid="stMarkdownContainer"] p {
         color: #00FF00 !important;
     }
-    /* Slider rengini yeşil yapmak için */
-    div[data-baseweb="slider"] > div > div {
-        background-color: #00FF00 !important;
+    hr {
+        border: 0.5px solid #00FF00 !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -51,7 +55,7 @@ theta = np.arctan(x / L)
 beta = (np.pi * a * np.sin(theta)) / lam
 alpha = (np.pi * d * np.sin(theta)) / lam
 
-# Sabit Tema Rengi (Neon Yeşil)
+# Sabit Tema Rengi
 SABIT_RENK = '#00FF00' 
 
 # Çifte Yarık Deneyi
@@ -63,17 +67,17 @@ with col1:
     st.subheader("Yoğunluk Dağılımı")
     fig_double = go.Figure()
     fig_double.add_trace(go.Scatter(x=x*100, y=intensity_double, line=dict(color=SABIT_RENK, width=2), fill='tozeroy', fillcolor='rgba(0, 255, 0, 0.1)'))
-    fig_double.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", gridcolor='#004400'), yaxis=dict(title="Yoğunluk", gridcolor='#004400'), height=350)
+    fig_double.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", gridcolor='#004400', titlefont=dict(color=SABIT_RENK)), yaxis=dict(title="Yoğunluk", gridcolor='#004400', titlefont=dict(color=SABIT_RENK)), height=350)
     st.plotly_chart(fig_double, use_container_width=True)
 
 with col2:
     st.subheader("Projeksiyon")
     pattern_double = np.tile(intensity_double, (100, 1))
     fig_map_double = go.Figure(data=go.Heatmap(z=pattern_double, x=x*100, colorscale=[[0, '#000000'], [1, SABIT_RENK]], showscale=False))
-    fig_map_double.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)"), yaxis=dict(visible=False), height=350)
+    fig_map_double.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", titlefont=dict(color=SABIT_RENK)), yaxis=dict(visible=False), height=350)
     st.plotly_chart(fig_map_double, use_container_width=True)
 
-st.markdown(f"""<div style="background-color: #000000; padding: 15px; border-radius: 10px; border: 2px solid #00FF00; margin-bottom: 40px;">
+st.markdown(f"""<div style="border: 2px solid #00FF00; padding: 15px; border-radius: 10px; background-color: #000000; margin-bottom: 40px;">
 <p style="margin:0; color: {SABIT_RENK}; font-weight: bold;">Çifte Yarık Analizi:</p><h3 style="margin:0; color: #00FF00;">Saçak Aralığı (Δx): {round((lam * L / d) * 1000, 3)} mm</h3></div>""", unsafe_allow_html=True)
 
 # Tek Yarık Deneyi
@@ -85,15 +89,15 @@ with col3:
     st.subheader("Yoğunluk Dağılımı")
     fig_single = go.Figure()
     fig_single.add_trace(go.Scatter(x=x*100, y=intensity_single, line=dict(color=SABIT_RENK, width=2), fill='tozeroy', fillcolor='rgba(0, 255, 0, 0.1)'))
-    fig_single.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", gridcolor='#004400'), yaxis=dict(title="Yoğunluk", gridcolor='#004400'), height=350)
+    fig_single.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", gridcolor='#004400', titlefont=dict(color=SABIT_RENK)), yaxis=dict(title="Yoğunluk", gridcolor='#004400', titlefont=dict(color=SABIT_RENK)), height=350)
     st.plotly_chart(fig_single, use_container_width=True)
 
 with col4:
     st.subheader("Projeksiyon")
     pattern_single = np.tile(intensity_single, (100, 1))
     fig_map_single = go.Figure(data=go.Heatmap(z=pattern_single, x=x*100, colorscale=[[0, '#000000'], [1, SABIT_RENK]], showscale=False))
-    fig_map_single.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)"), yaxis=dict(visible=False), height=350)
+    fig_map_single.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(title="Ekran (cm)", titlefont=dict(color=SABIT_RENK)), yaxis=dict(visible=False), height=350)
     st.plotly_chart(fig_map_single, use_container_width=True)
 
-st.markdown(f"""<div style="background-color: #000000; padding: 15px; border-radius: 10px; border: 2px solid #00FF00;">
+st.markdown(f"""<div style="border: 2px solid #00FF00; padding: 15px; border-radius: 10px; background-color: #000000;">
 <p style="margin:0; color: {SABIT_RENK}; font-weight: bold;">Tek Yarık Analizi:</p><h3 style="margin:0; color: #00FF00;">Merkezi Aydınlık Saçak Genişliği: {round((2 * lam * L / a) * 1000, 3)} mm</h3></div>""", unsafe_allow_html=True)
