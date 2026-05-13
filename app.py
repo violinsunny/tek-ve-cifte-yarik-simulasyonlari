@@ -8,10 +8,13 @@ st.set_page_config(page_title="Tek ve Çifte Yarık Simülasyonları", layout="w
 # 2. Yazı Stili ve Arayüz Düzenlemesi
 st.markdown("""
     <style>
+    /* Ana Arka Plan */
     .stApp {
         background-color: #000000;
         font-family: 'Courier New', monospace;
     }
+    
+    /* Başlıklar ve Metinler */
     h1, h2, h3 { 
         color: #00FF00 !important; 
         text-shadow: 0 0 10px #00FF00;
@@ -20,11 +23,21 @@ st.markdown("""
     p, label, span { 
         color: #00FF00 !important; 
     }
-    /* Slider ve Input Alanları */
+    
+    /* Slider Görünümü */
     .stSlider > label { color: #00FF00 !important; }
     div[data-baseweb="slider"] > div > div { background-color: #00FF00 !important; }
     
-    /* Parametre kutucuklarının içindeki değerlerin okunabilirliği */
+    /* TOOLTIP DÜZELTMESİ: Yeşil kutucuk içindeki değerleri görünür (Siyah) yapar */
+    div[data-baseweb="tooltip"] {
+        color: #000000 !important;
+    }
+    div[role="slider"] > div {
+        color: #000000 !important;
+        font-weight: bold;
+    }
+    
+    /* Alt bilgi panelleri */
     div[data-testid="stMarkdownContainer"] p {
         color: #00FF00 !important;
     }
