@@ -2,3 +2,6 @@ streamlit
 numpy
 plotly
 matplotlib
+qiskit
+qiskit-aer
+pylatexenc
